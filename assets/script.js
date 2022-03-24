@@ -2,6 +2,8 @@
 var toUpper = function(x) {
   return x.toUpperCase();
 };
+
+
  var specialChars = ["!", "#", "$", "%", "&", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?"];
  var numericChars = ["1", "2", "3", "4", "5", "6", "7","8","9"];
  var lowerCaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s","t","u","v","w","x","y","z" ];
@@ -49,31 +51,42 @@ var toUpper = function(x) {
 
   for(i = 0; i < passwordLength; i++ ) {
 
-    if(includeLowerCase === true && password.length < passwordLength){
-      var random = randomNumber(0, lowerCaseChars.length);
-      var char = lowerCaseChars[random]
+    if(includeLowerCase === true){
+      var random = randomNumber(0, (lowerCaseChars.length - 1));
+      var char = lowerCaseChars[random];
+      password = password += char;
+      if(password.length === passwordLength) {
+        break;
+      }
     }
-    else {
-      break;
+    
+    if(includeUpperCase === true) {
+      var random = randomNumber(0, (upperCaseChars.length - 1));
+      var char = upperCaseChars[random];
+      password = password += char;
+      if(password.length === passwordLength) {
+        break;
+      }
     }
-    if(includeUpperCase === true && password.length < passwordLength) {
-      var random = randomNumber(0, upperCaseChars.length);
+    
+    if(includeNumeric === true) {
+      var random = randomNumber(0, (numericChars.length - 1));
+      var char = numericChars[random];
+      password = password += char;
+      if(password.length === passwordLength) {
+        break;
+      }
     }
-    else {
-      break;
+    
+    if(includeSpecial === true) {
+      var random = randomNumber(0, (specialChars.length - 1))
+      var char = specialChars[random];
+      password = password += char;
+      if(password.length === passwordLength) {
+        break;
+      }
     }
-    if(includeNumeric === true && password.length < passwordLength) {
-      var random = randomNumber(0, numericChars.length);
-    }
-    else {
-      break;
-    }
-    if(includeSpecial === true && password.length < passwordLength) {
-      var random = randomNumber(0, specialChars.length);
-    }
-    else {
-      break;
-    }
+    
   };
 
 
