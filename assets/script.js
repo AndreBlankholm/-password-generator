@@ -1,5 +1,5 @@
 // Assignment code here
-var toUpper = function(x) {
+var toUpper = function(x) {  // found this code snippet, gonna try to use. confusing but it works" probably wont remember it.
   return x.toUpperCase();
 };
 
@@ -12,7 +12,7 @@ var toUpper = function(x) {
   
   
   var randomNumber = function(min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min);
+    var value = Math.floor(Math.random() * (max - min + 1) + min); // randomize // need to make a var look like this inorder to use: var random = randomNumber(0, (lowerCaseChars.length - 1));
   
     return value;
   };
